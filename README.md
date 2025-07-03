@@ -1,4 +1,31 @@
-⚠️ Requires Windows (for .bat files). Linux/Mac users can adapt by running the corresponding `.js` or `.py` scripts directly.
+# 🔐 Shadow IT Auditing System (Local Prototype)
+
+> **A tamper-proof, privacy-preserving audit logging system**  
+> Uses IPFS, Merkle Trees, and Smart Contracts to ensure verifiable audit logs — built for local simulation with a full auditor verification UI.
+
+---
+
+### ⚙️ System Requirements
+
+- ✅ **Windows OS** (batch files used for automation)  
+- ⚠️ **Mac/Linux users** can run `.js` / `.py` scripts manually  
+- 🧠 No blockchain or IPFS expertise needed — fully automated!
+
+---
+
+## 🗂️ Project Structure Overview
+
+
+![alt text](image.png)
+
+### 1️⃣ Clone the GitHub Repository
+
+```bash
+git clone https://github.com/chauhan-pratham/ShadowIT_Auditing/
+cd ShadowIT_Auditing
+````
+
+---
 
 ## 🛠️ System Setup Guide
 
@@ -53,17 +80,16 @@ This launches a local Ethereum node (`npx hardhat node`).
 
 ### 💾 Step 4: Start IPFS Desktop
 
-1. Download & install:
-   👉 [IPFS Desktop](https://docs.ipfs.tech/install/ipfs-desktop/)
+1. Download & install IPFS Desktop:
+   👉 [https://docs.ipfs.tech/install/ipfs-desktop/](https://docs.ipfs.tech/install/ipfs-desktop/)
 
-2. Launch the app.
-   Confirm it's running at:
+2. Launch the app and confirm it's running at:
 
 ```
 http://127.0.0.1:5001
 ```
 
-> This is your local decentralized file storage.
+> This acts as your local decentralized file storage.
 
 ---
 
@@ -99,23 +125,23 @@ To perform all company-side tasks (deploy, collect logs, sign, hash, upload to I
 1. Make sure Python 3.8 or higher is installed:
    👉 [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
-2. Open a terminal and install required Python packages:
+2. Open a terminal and install required packages:
 
 ```bash
 pip install streamlit psutil cryptography pycryptodome
 ```
 
-These are needed for:
+These packages enable:
 
 * 🧠 TPM-like digital signature verification
-* 🔐 Secure hashing & integrity checks
-* 🌐 Launching the auditor dashboard with Streamlit
+* 🔐 Secure hashing & Merkle proof validation
+* 🌐 Launching the Streamlit auditor dashboard
 
 ---
 
 #### 🕵️ B. Auditor Workflow: Verifying a Log
 
-1. Get the following 4 files from the company:
+1. Receive these 4 files from the company:
 
    * `process_log_X.json`
    * `process_log_X.sig`
@@ -130,12 +156,18 @@ These are needed for:
 
 3. Upload the 4 files into the browser window when prompted.
 
-4. The system will perform 3 checks:
+4. The system will automatically perform 3 checks:
 
-   * ✅ **Integrity**: Matches hash in `.sha256` to content of `.json`
-   * ✅ **Origin**: Verifies `.sig` using `public_key.pem`
-   * ✅ **Inclusion**: Validates Merkle proof inside `.proof.json`
+   * ✅ **Integrity**: Ensures log hash matches `.sha256`
+   * ✅ **Origin**: Validates `.sig` using stored public key
+   * ✅ **Inclusion**: Recomputes Merkle Root and matches `.proof.json`
 
-5. If all checks pass, the log is considered **cryptographically valid and untampered**.
+5. If all checks pass, the log is **verifiably authentic and untampered**.
 
 ---
+
+✅ Your secure auditing system is now fully operational — cryptographically traceable, blockchain-anchored, and audit-ready.
+
+---
+
+
